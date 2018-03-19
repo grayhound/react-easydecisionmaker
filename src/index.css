@@ -1,0 +1,24 @@
+.text-center-xs {
+    text-align: center;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .text-center-xs {
+        text-align: left;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .text-center-xs {
+        text-align: left;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .text-center-xs {
+        text-align: left;
+    }
+}
