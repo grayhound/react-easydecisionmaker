@@ -26,10 +26,21 @@ class DecisionMaker extends Component {
         if (!data.answers[1].value) {
             data.answers[1].value = this.defaultAnswer1;
         }
+        data.answers = this.removeEmptyAnswers(data.answers);
         this.setState({
             'isResult': true,
         });
         this.refs[this.decisionMakerResultRef].showResult(data);
+    }
+
+    removeEmptyAnswers(answers) {
+        var result = [];
+        for (var i = 0; i < answers.length; i++) {
+            if (answers[i].value) {
+                result[result.length] = answers[i];
+            }
+        }
+        return result;
     }
 
     askAnotherQuestion() {
@@ -49,7 +60,7 @@ class DecisionMaker extends Component {
                 <div style={{ display: this.state.isResult ? 'none' : 'block' }}>
                     <Row className="help-text-title justify-content-center">
                         <Col className="text-center" xs="8">
-                            Enter a question and add options. If options are empty default will be "Yes" and "No"
+                            Enter a question and add options. If first two options are empty default for them will be "Yes" and "No".
                         </Col>
                     </Row>
                     <Row className="justify-content-center">
