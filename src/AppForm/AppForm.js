@@ -45,7 +45,7 @@ class AppForm extends Component {
         event.persist();
         this.setState(prevState => {
             return {
-                question: event.target.value.trim()
+                question: event.target.value
             };
         });
     }
@@ -54,7 +54,7 @@ class AppForm extends Component {
         event.persist();
         this.setState(prevState => {
             var newOptionObjects = prevState.option_objects;
-            newOptionObjects[option_field_id].value = event.target.value.trim();
+            newOptionObjects[option_field_id].value = event.target.value;
             return {
                 option_objects: newOptionObjects
             };
@@ -64,7 +64,7 @@ class AppForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         var data = {
-            'question': this.state.question,
+            'question': this.state.question.trim(),
             'answers': this.state.option_objects,
         };
         this.props.showResult(data);

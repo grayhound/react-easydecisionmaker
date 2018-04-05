@@ -36,6 +36,7 @@ class DecisionMaker extends Component {
     removeEmptyAnswers(answers) {
         var result = [];
         for (var i = 0; i < answers.length; i++) {
+            answers[i].value = answers[i].value.trim();
             if (answers[i].value) {
                 result[result.length] = answers[i];
             }
